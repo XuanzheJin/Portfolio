@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xuanzhe Jin | Software Developer Portfolio</title>
+<meta name="description" content="Portfolio of Xuanzhe Jin: software development student at NBCC (C#, .NET, ASP.NET Core MVC, Java, JavaScript, SQL) and PMP-certified project manager.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23143268'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Georgia,serif' font-weight='700' fill='%2361C1BD' text-anchor='middle'%3EXJ%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#143268; --gold:#61C1BD; --gold-ink:#0F6F6A; --sky:#98C9D9;
+  --bg:#FFFFFF; --text:#1B2A41; --muted:#4F6178; --line:#D3E3EA; --soft:#EAF4F8;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0B1730; --text:#E4EDF5; --muted:#9DB2C7; --line:#22385F; --soft:#11244A; --gold-ink:#61C1BD;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 var(--sans)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px}
+img{max-width:100%;height:auto;display:block}
+
+/* ---------- layout ---------- */
+.shell{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}
+.side{background:var(--ink);color:#fff;padding:2.5rem 2rem;position:sticky;top:0;height:100vh;overflow:auto;display:flex;flex-direction:column;gap:1.5rem}
+.side .photo{width:150px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:4px;border:3px solid var(--gold)}
+.side h1{font:700 1.75rem/1.15 var(--serif);margin:0}
+.side .role{margin:.4rem 0 0;color:var(--sky);font-size:.95rem;line-height:1.45}
+.side nav ul{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
+.side nav a{display:block;text-decoration:none;color:#B7DCE8;padding:.35rem 0 .35rem .9rem;border-left:2px solid transparent;font-size:.95rem}
+.side nav a:hover{color:#fff;border-left-color:var(--gold)}
+.contact{margin-top:auto;display:grid;gap:.4rem;font-size:.92rem}
+.contact a{color:#fff;text-underline-offset:3px;text-decoration-color:var(--gold)}
+.main{padding:4.5rem clamp(1.25rem,5vw,4.5rem) 5rem;max-width:62rem}
+
+/* ---------- type ---------- */
+h2{font:700 1.9rem/1.2 var(--serif);margin:0 0 1.25rem;color:var(--ink)}
+@media (prefers-color-scheme:dark){h2{color:#fff}}
+h3{font:700 1.2rem/1.3 var(--serif);margin:0 0 .25rem}
+section{padding-top:3.5rem;margin-top:3.5rem;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0;margin-top:0;padding-top:0}
+p{margin:0 0 1rem;max-width:68ch}
+.lead{font:400 clamp(1.7rem,3.4vw,2.5rem)/1.2 var(--serif);color:var(--ink);max-width:24ch;margin:0 0 1.5rem}
+@media (prefers-color-scheme:dark){.lead{color:#fff}}
+.sub{color:var(--muted)}
+.btn{display:inline-block;background:var(--gold);color:#143268;font-weight:600;text-decoration:none;padding:.7rem 1.2rem;border-radius:4px;margin-top:.5rem}
+.btn:hover{filter:brightness(.95)}
+
+/* ---------- skills ---------- */
+dl.skills{display:grid;grid-template-columns:max-content 1fr;gap:.6rem 1.75rem;margin:0}
+dl.skills dt{font-weight:600}
+dl.skills dd{margin:0;color:var(--muted)}
+
+/* ---------- projects ---------- */
+.project{border-left:4px solid var(--gold);padding:.25rem 0 .25rem 1.25rem;margin:0 0 2.25rem}
+.project .meta{color:var(--muted);font-size:.93rem;margin:0 0 .6rem}
+.project p{margin-bottom:.6rem}
+.project .tools{font-size:.93rem}
+.project .tools b{font-weight:600}
+
+/* ---------- figures ---------- */
+figure{margin:1.5rem 0 2rem}
+figure img{border:1px solid var(--line);border-radius:4px;background:#fff}
+figcaption{font-size:.9rem;color:var(--muted);margin-top:.5rem}
+details{margin:1rem 0 2rem;border:1px solid var(--line);border-radius:4px}
+summary{cursor:pointer;padding:.8rem 1rem;font-weight:600}
+details > div{padding:0 1rem 1rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft)}
+.scroll{overflow-x:auto}
+
+/* ---------- timeline ---------- */
+.timeline{list-style:none;margin:0;padding:0 0 0 1.25rem;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 1.75rem 1rem}
+.timeline li::before{content:"";position:absolute;left:-1.25rem;top:.55rem;width:10px;height:10px;margin-left:-6px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.timeline .when{color:var(--muted);font-size:.92rem;margin:0}
+
+/* ---------- testimonial / lists ---------- */
+blockquote{margin:0;padding:1.25rem 1.5rem;background:var(--soft);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;font:italic 1.15rem/1.65 var(--serif)}
+blockquote footer{font:600 .95rem var(--sans);font-style:normal;margin-top:.8rem;color:var(--muted)}
+ul.plain{padding-left:1.2rem;margin:0}
+ul.plain li{margin-bottom:.5rem;max-width:68ch}
+.note{font-size:.92rem;color:var(--muted)}
+
+/* ---------- small screens ---------- */
+@media (max-width:900px){
+  .shell{display:block}
+  .side{position:static;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:1.25rem;padding:1.5rem 1.25rem}
+  .side .photo{width:88px}
+  .side nav{order:3;width:100%}
+  .side nav ul{display:flex;gap:.5rem 1rem;flex-wrap:wrap}
+  .side nav a{border-left:0;border-bottom:2px solid transparent;padding:.2rem 0}
+  .side nav a:hover{border-bottom-color:var(--gold)}
+  .contact{margin-top:0;order:4;width:100%}
+  .main{padding-top:2.5rem}
+  dl.skills{grid-template-columns:1fr;gap:.1rem}
+  dl.skills dd{margin-bottom:.8rem}
+}
+@media print{.side nav,.btn{display:none}.side{position:static;height:auto}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <div>
+      <img class="photo" src="assets/photo.jpg" alt="Portrait of Xuanzhe Jin" width="150" height="188">
+    </div>
+    <div>
+      <h1>Xuanzhe Jin</h1>
+      <p class="role">Software development student at NBCC and PMP-certified project manager</p>
+    </div>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#samples">Design samples</a></li>
+        <li><a href="#background">Experience and education</a></li>
+        <li><a href="#growth">Certification and volunteering</a></li>
+        <li><a href="#testimonial">Testimonial</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="contact">
+      <span>Moncton, New Brunswick</span>
+      <a href="mailto:daniel.jin1127@gmail.com">daniel.jin1127@gmail.com</a>
+      <a href="https://www.linkedin.com/in/xuanzhe-jin-8a9712380" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/XuanzheJin" rel="noopener">GitHub</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section id="about">
+      <p class="lead">I build web applications, and I plan the work like a project manager.</p>
+      <p>I am a final-year Information Technology (Software Development) student at NBCC with a full-stack foundation in C#/.NET, Java, JavaScript, HTML/CSS and SQL. Before moving into development, I spent more than three years managing catalogs and digital tools at adidas, and I earned my PMP certification in 2020.</p>
+      <p>I turn business needs into use cases, user stories and wireframes, then build and test them. I work in English, Mandarin and Korean, and I am looking for a software development internship or practicum placement.</p>
+      <a class="btn" href="assets/XuanzheJin-Portfolio.pdf">Download the full portfolio (PDF)</a>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>C#, Java, JavaScript, SQL, Bash</dd>
+        <dt>Web</dt><dd>HTML, CSS, .NET, ASP.NET Core MVC</dd>
+        <dt>Databases</dt><dd>SQL Server, relational schema design</dd>
+        <dt>Testing and version control</dt><dd>xUnit, Git, GitHub</dd>
+        <dt>Environment</dt><dd>Visual Studio, VS Code, Ubuntu and WSL</dd>
+        <dt>Design and analysis</dt><dd>UML class diagrams, use cases, user stories, wireframes</dd>
+        <dt>Ways of working</dt><dd>Agile / Scrum, project management (PMP)</dd>
+      </dl>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <h3>LinkNest Real Estate Website</h3>
+        <p class="meta">Server-Side Web: MVC course project, 2026 · Real estate · Team of two · In progress</p>
+        <p>A real estate website built with ASP.NET Core MVC for a client. Customers can register, log in, browse properties and book showings. Staff can upload images, and admins can create staff accounts. Every page fits on one screen and has a phone version.</p>
+        <p class="tools"><b>Tools:</b> ASP.NET Core MVC, C#, .NET, Visual Studio, Git and GitHub</p>
+        <p class="tools"><b>So far:</b> team profile memo, use cases, user stories, and final designs for the home and Upload Image pages (see design samples below).</p>
+      </article>
+
+      <article class="project">
+        <h3>Mini Rogue Console Game</h3>
+        <p class="meta">NBCC academic project · Games</p>
+        <p>A team project to design and build a console-based rogue-like game, planned with UML class diagrams. I implemented the core game logic using object-oriented principles.</p>
+        <p class="tools"><b>Tools:</b> C#, .NET, Git, UML</p>
+        <p class="tools"><b>Outcome:</b> a playable application, delivered on schedule.</p>
+      </article>
+
+      <article class="project">
+        <h3>Catalogs and digital tools at adidas</h3>
+        <p class="meta">Professional experience, 2022 to 2025 · Retail and trade marketing</p>
+        <p>Created trade marketing catalogs, coordinated with Business Units to keep product release data current, maintained the team’s digital tools, and resolved execution issues during cross-functional rollouts.</p>
+        <p class="tools"><b>Outcome:</b> better data accessibility and operational efficiency for the team, and project timelines met.</p>
+      </article>
+    </section>
+
+    <section id="samples">
+      <h2>Design samples from LinkNest</h2>
+      <p>Course work from the LinkNest project. It contains no confidential client or employer information.</p>
+
+      <figure>
+        <img src="assets/homepage.jpg" alt="Final LinkNest home page design for desktop and iPhone: a yellow hero with the line 'Linking millions to a place called HOME.' and three feature panels" width="1800" height="1125" loading="lazy">
+        <figcaption>Final home page design, desktop and iPhone.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/upload.jpg" alt="Final LinkNest Upload Image page design for desktop and phone, with an image file picker, a description field and an Upload button" width="1800" height="1166" loading="lazy">
+        <figcaption>Final Upload Image page design, desktop and phone.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/usecase.jpg" alt="Use case diagram showing Customer, Staff and Admin roles and six use cases for the LinkNest website" width="1434" height="964" loading="lazy">
+        <figcaption>Use case diagram: three roles and the six main functions of the site.</figcaption>
+      </figure>
+
+      <details>
+        <summary>Use case narrative: Upload Image</summary>
+        <div class="scroll">
+          <table>
+            <tr><th scope="row">Actor</th><td>Staff</td></tr>
+            <tr><th scope="row">Precondition</th><td>The staff member is logged in through the staff login.</td></tr>
+            <tr><th scope="row">Main flow</th><td>1. The staff member selects Upload Image.<br>2. The system displays the Upload Image page.<br>3. The staff member chooses an image file, adds a description and selects Upload.<br>4. The system checks the file.<br>5. The system saves the image and shows a confirmation message.</td></tr>
+            <tr><th scope="row">Alternative flow</th><td>If the file is not valid, the system shows an error message and the staff member can choose another file.</td></tr>
+            <tr><th scope="row">Postcondition</th><td>The image is saved and available in the system.</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details>
+        <summary>User stories</summary>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>As a…</th><th>I want to…</th><th>So that…</th></tr></thead>
+            <tbody>
+              <tr><td>Customer</td><td>register an account</td><td>I can book showings</td></tr>
+              <tr><td>Customer</td><td>log in to the website</td><td>I can access my account</td></tr>
+              <tr><td>Customer</td><td>browse available properties</td><td>I can find homes that interest me</td></tr>
+              <tr><td>Customer</td><td>book a showing for a property</td><td>I can view it in person</td></tr>
+              <tr><td>Staff member</td><td>log in through the staff login</td><td>I can use the staff tools</td></tr>
+              <tr><td>Staff member</td><td>upload an image</td><td>images are available on the website</td></tr>
+              <tr><td>Admin</td><td>create staff accounts</td><td>staff can access the staff tools</td></tr>
+              <tr><td>Visitor</td><td>use the website on my phone</td><td>I can use it anywhere</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section id="background">
+      <h2>Experience and education</h2>
+      <ol class="timeline">
+        <li>
+          <p class="when">September 2025 to present</p>
+          <h3>Diploma in Information Technology: Software Development</h3>
+          <p class="sub">New Brunswick Community College (NBCC), Moncton</p>
+          <p>Applying core programming principles in software engineering projects and hands-on labs.</p>
+        </li>
+        <li>
+          <p class="when">January 2022 to June 2025</p>
+          <h3>Catalog and Digital Tool Project Manager</h3>
+          <p class="sub">adidas</p>
+          <p>Trade marketing catalogs, product release data, digital tools and cross-functional rollouts.</p>
+        </li>
+        <li>
+          <p class="when">2009 to 2013</p>
+          <h3>Bachelor of Arts in Advertising</h3>
+          <p class="sub">Changchun University of Science and Technology, China</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="growth">
+      <h2>Certification and volunteering</h2>
+      <ul class="plain">
+        <li><b>Project Management Professional (PMP)®</b>, Project Management Institute. Granted December 2020.</li>
+        <li><b>Legs for Literacy</b>, Moncton (October 2025). Directed runners and kept the course safe at a fast-paced community event.</li>
+      </ul>
+      <figure>
+        <img src="assets/pmp-certificate.jpg" alt="PMP certificate issued to Xuanzhe Jin by the Project Management Institute" width="1400" height="1082" loading="lazy">
+        <figcaption>PMP certificate.</figcaption>
+      </figure>
+    </section>
+
+    <section id="testimonial">
+      <h2>What a colleague says</h2>
+      <blockquote>
+        “Working with Xuanzhe at adidas was a great experience. He brought a high level of professionalism and responsibility to our team. He has a great talent for keeping cross-functional projects moving smoothly and is very agile when it comes to solving problems on the spot. Any team would be lucky to have him.”
+        <footer>Nancy Weng, adidas</footer>
+      </blockquote>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>I am looking for a software development internship or practicum placement. Email me, or find me on LinkedIn and GitHub.</p>
+      <ul class="plain">
+        <li><a href="mailto:daniel.jin1127@gmail.com">daniel.jin1127@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/xuanzhe-jin-8a9712380" rel="noopener">linkedin.com/in/xuanzhe-jin-8a9712380</a></li>
+        <li><a href="https://github.com/XuanzheJin" rel="noopener">github.com/XuanzheJin</a></li>
+      </ul>
+      <p class="note">© 2026 Xuanzhe Jin</p>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
