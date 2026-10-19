@@ -5,292 +5,380 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Xuanzhe Jin | Software Developer Portfolio</title>
 <meta name="description" content="Portfolio of Xuanzhe Jin: software development student at NBCC (C#, .NET, ASP.NET Core MVC, Java, JavaScript, SQL) and PMP-certified project manager.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23143268'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Georgia,serif' font-weight='700' fill='%2361C1BD' text-anchor='middle'%3EXJ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E2250'/%3E%3Ctext x='32' y='42' font-size='26' font-family='Menlo,Consolas,monospace' font-weight='700' fill='%2361C1BD' text-anchor='middle'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --ink:#143268; --gold:#61C1BD; --gold-ink:#0F6F6A; --sky:#98C9D9;
-  --bg:#FFFFFF; --text:#1B2A41; --muted:#4F6178; --line:#D3E3EA; --soft:#EAF4F8;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --bg:#F7FAFC; --surface:#FFFFFF; --ink:#0F2147; --sub:#51627F; --line:#DCE5EE; --link:#0F6F6A;
+  --navy:#143268; --teal:#61C1BD; --sky:#98C9D9;
+  --code:#0E2250; --code-fg:#E6EEF8; --code-dim:#8397BA;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#0B1730; --text:#E4EDF5; --muted:#9DB2C7; --line:#22385F; --soft:#11244A; --gold-ink:#61C1BD;}
+  :root{--bg:#081226; --surface:#0E1D3A; --ink:#EAF1FA; --sub:#9DB0CC; --line:#1C2E52; --link:#61C1BD;}
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 var(--sans)}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)}
 
-/* ---------- layout ---------- */
-.shell{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}
-.side{background:var(--ink);color:#fff;padding:2.5rem 2rem;position:sticky;top:0;height:100vh;overflow:auto;display:flex;flex-direction:column;gap:1.5rem}
-.side .photo{width:150px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:4px;border:3px solid var(--gold)}
-.side h1{font:700 1.75rem/1.15 var(--serif);margin:0}
-.side .role{margin:.4rem 0 0;color:var(--sky);font-size:.95rem;line-height:1.45}
-.side nav ul{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
-.side nav a{display:block;text-decoration:none;color:#B7DCE8;padding:.35rem 0 .35rem .9rem;border-left:2px solid transparent;font-size:.95rem}
-.side nav a:hover{color:#fff;border-left-color:var(--gold)}
-.contact{margin-top:auto;display:grid;gap:.4rem;font-size:.92rem}
-.contact a{color:#fff;text-underline-offset:3px;text-decoration-color:var(--gold)}
-.main{padding:4.5rem clamp(1.25rem,5vw,4.5rem) 5rem;max-width:62rem}
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:56px}
+.path{font:600 .95rem var(--mono);text-decoration:none;color:var(--ink);white-space:nowrap}
+.path i{font-style:normal;color:var(--link)}
+.caret{display:inline-block;width:.55em;height:1.05em;background:var(--teal);vertical-align:-.15em;margin-left:.15em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
+.bar nav{min-width:0}
+.bar ul{list-style:none;margin:0;padding:0;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none}
+.bar ul::-webkit-scrollbar{display:none}
+.bar ul a{font:.85rem var(--mono);color:var(--sub);text-decoration:none;white-space:nowrap}
+.bar ul a:hover{color:var(--ink)}
 
-/* ---------- type ---------- */
-h2{font:700 1.9rem/1.2 var(--serif);margin:0 0 1.25rem;color:var(--ink)}
-@media (prefers-color-scheme:dark){h2{color:#fff}}
-h3{font:700 1.2rem/1.3 var(--serif);margin:0 0 .25rem}
-section{padding-top:3.5rem;margin-top:3.5rem;border-top:1px solid var(--line)}
-section:first-of-type{border-top:0;margin-top:0;padding-top:0}
-p{margin:0 0 1rem;max-width:68ch}
-.lead{font:400 clamp(1.7rem,3.4vw,2.5rem)/1.2 var(--serif);color:var(--ink);max-width:24ch;margin:0 0 1.5rem}
-@media (prefers-color-scheme:dark){.lead{color:#fff}}
-.sub{color:var(--muted)}
-.btn{display:inline-block;background:var(--gold);color:#143268;font-weight:600;text-decoration:none;padding:.7rem 1.2rem;border-radius:4px;margin-top:.5rem}
-.btn:hover{filter:brightness(.95)}
+/* ---------- hero ---------- */
+.hero{padding:clamp(3.5rem,9vw,6.5rem) 0 clamp(3rem,7vw,5rem)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+h1{font-size:clamp(2.3rem,4.8vw,3.6rem);font-weight:650;letter-spacing:-.04em;line-height:1.02;margin:0 0 1.25rem}
+h1 .hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--teal) 55%,transparent) 62%)}
+.sub{color:var(--sub);font-size:1.2rem;line-height:1.5;max-width:30rem;margin:0 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;font:600 .95rem var(--mono);text-decoration:none;padding:.75rem 1.15rem;border-radius:8px;background:var(--navy);color:#fff;border:1.5px solid var(--navy)}
+.btn:hover{background:#0E2450}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--teal);background:transparent}
+@media (prefers-color-scheme:dark){.btn{background:var(--teal);color:#0B2447;border-color:var(--teal)}.btn:hover{background:#7ad1cd}}
 
-/* ---------- skills ---------- */
-dl.skills{display:grid;grid-template-columns:max-content 1fr;gap:.6rem 1.75rem;margin:0}
-dl.skills dt{font-weight:600}
-dl.skills dd{margin:0;color:var(--muted)}
+/* ---------- window / code ---------- */
+.win{background:var(--code);color:var(--code-fg);border-radius:12px;overflow:hidden;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 40px -22px rgba(15,33,71,.55)}
+.win .head{display:flex;align-items:center;gap:.45rem;padding:.65rem .9rem;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.07)}
+.win .head span{width:10px;height:10px;border-radius:50%;background:var(--code-dim);opacity:.55}
+.win .head span:nth-child(2){background:var(--sky)}
+.win .head span:nth-child(3){background:var(--teal)}
+.win .head em{font:normal .8rem var(--mono);color:var(--code-dim);margin-left:.5rem}
+.win pre{margin:0;padding:1.1rem 1.2rem 1.3rem;font:.9rem/1.7 var(--mono);white-space:pre-wrap;word-break:break-word;overflow-x:auto}
+.p{color:var(--teal)} .d{color:var(--code-dim)} .k{color:var(--teal)} .s{color:var(--sky)} .n{color:#fff}
+.win a{color:var(--sky);text-underline-offset:3px}
+.js .term .ln{opacity:0;transition:opacity .25s}
+.js .term .ln.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.js .term .ln{opacity:1;transition:none}}
+.shot{background:#fff;line-height:0}
+.shot.dk{background:#1d1d1f}
+.shot img{width:100%}
 
-/* ---------- projects ---------- */
-.project{border-left:4px solid var(--gold);padding:.25rem 0 .25rem 1.25rem;margin:0 0 2.25rem}
-.project .meta{color:var(--muted);font-size:.93rem;margin:0 0 .6rem}
-.project p{margin-bottom:.6rem}
-.project .tools{font-size:.93rem}
-.project .tools b{font-weight:600}
+/* ---------- sections ---------- */
+section{padding:clamp(3.5rem,8vw,5.5rem) 0;border-top:1px solid var(--line)}
+.cm{font:.9rem var(--mono);color:var(--link);margin:0 0 .6rem}
+h2{font-size:clamp(1.8rem,3.8vw,2.6rem);font-weight:650;letter-spacing:-.03em;line-height:1.1;margin:0 0 1.5rem}
+h3{font-size:1.3rem;font-weight:650;letter-spacing:-.02em;line-height:1.2;margin:0 0 .3rem}
+p{margin:0 0 1rem;max-width:66ch}
+.sub2{color:var(--sub)}
+.readme{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.readme .head{font:.82rem var(--mono);color:var(--sub);padding:.6rem 1rem;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface) 70%,var(--bg))}
+.readme .md{padding:clamp(1.25rem,3vw,2rem)}
+.readme .md p:last-child{margin-bottom:0}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:1.5rem}
+.facts div{background:var(--surface);padding:1.1rem 1.25rem}
+.facts b{display:block;font:650 1.9rem/1.1 var(--mono);letter-spacing:-.03em;color:var(--ink)}
+.facts span{display:block;color:var(--sub);font-size:.92rem;line-height:1.35;margin-top:.3rem}
 
-/* ---------- figures ---------- */
-figure{margin:1.5rem 0 2rem}
-figure img{border:1px solid var(--line);border-radius:4px;background:#fff}
-figcaption{font-size:.9rem;color:var(--muted);margin-top:.5rem}
-details{margin:1rem 0 2rem;border:1px solid var(--line);border-radius:4px}
-summary{cursor:pointer;padding:.8rem 1rem;font-weight:600}
-details > div{padding:0 1rem 1rem}
-table{border-collapse:collapse;width:100%;font-size:.95rem}
-th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:var(--soft)}
-.scroll{overflow-x:auto}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.9rem 0 0;padding:0;list-style:none}
+.chips li{font:.8rem var(--mono);padding:.2rem .55rem;border-radius:6px;border:1px solid var(--line);color:var(--sub);background:var(--surface)}
+.badge{font:600 .75rem var(--mono);padding:.2rem .55rem;border-radius:999px;background:color-mix(in srgb,var(--teal) 30%,transparent);color:var(--ink);white-space:nowrap}
+.proj{margin-bottom:2.5rem}
+.proj .top{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin-bottom:.4rem}
+.proj .dir{font:600 1rem var(--mono);color:var(--link)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem}
+.card p{color:var(--sub);font-size:1rem}
+.card p b{color:var(--ink)}
+.cap{font:.82rem var(--mono);color:var(--sub);margin:.7rem 0 1.5rem}
 
-/* ---------- timeline ---------- */
-.timeline{list-style:none;margin:0;padding:0 0 0 1.25rem;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 1.75rem 1rem}
-.timeline li::before{content:"";position:absolute;left:-1.25rem;top:.55rem;width:10px;height:10px;margin-left:-6px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
-.timeline .when{color:var(--muted);font-size:.92rem;margin:0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:.75rem}
+summary{cursor:pointer;padding:.9rem 1.1rem;font:600 .92rem var(--mono);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"> ";color:var(--link)}
+details[open] summary::before{content:"v "}
+details > div{padding:0 1.1rem 1.1rem;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:.55rem .65rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--sub)}
 
-/* ---------- testimonial / lists ---------- */
-blockquote{margin:0;padding:1.25rem 1.5rem;background:var(--soft);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;font:italic 1.15rem/1.65 var(--serif)}
-blockquote footer{font:600 .95rem var(--sans);font-style:normal;margin-top:.8rem;color:var(--muted)}
-ul.plain{padding-left:1.2rem;margin:0}
-ul.plain li{margin-bottom:.5rem;max-width:68ch}
-.note{font-size:.92rem;color:var(--muted)}
 
-/* ---------- small screens ---------- */
-@media (max-width:900px){
-  .shell{display:block}
-  .side{position:static;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:1.25rem;padding:1.5rem 1.25rem}
-  .side .photo{width:88px}
-  .side nav{order:3;width:100%}
-  .side nav ul{display:flex;gap:.5rem 1rem;flex-wrap:wrap}
-  .side nav a{border-left:0;border-bottom:2px solid transparent;padding:.2rem 0}
-  .side nav a:hover{border-bottom-color:var(--gold)}
-  .contact{margin-top:0;order:4;width:100%}
-  .main{padding-top:2.5rem}
-  dl.skills{grid-template-columns:1fr;gap:.1rem}
-  dl.skills dd{margin-bottom:.8rem}
+.aboutgrid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:1.5rem;align-items:start}
+.me{align-self:start}
+.me img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;background:#fff}
+@media (max-width:760px){.aboutgrid{grid-template-columns:1fr}.me{max-width:230px}}
+
+/* ---------- git log ---------- */
+.log{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:2px solid var(--line)}
+.log li{position:relative;padding:0 0 1.9rem 1.2rem}
+.log li::before{content:"";position:absolute;left:calc(-1.6rem - 7px);top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--teal)}
+.log .when{font:.82rem var(--mono);color:var(--sub);display:block}
+.log .msg{font:600 1rem var(--mono);color:var(--ink);display:block;margin:.1rem 0 .25rem}
+.log .msg i{font-style:normal;color:var(--link)}
+.log p{color:var(--sub);margin:0;font-size:1rem}
+
+/* ---------- review comment ---------- */
+.review{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.review .head{display:flex;align-items:center;gap:.8rem;padding:.8rem 1.1rem;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface) 70%,var(--bg))}
+.av{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font:600 .8rem var(--mono);display:grid;place-items:center}
+.review .head b{font-weight:600}
+.review .head span{color:var(--sub);font-size:.92rem}
+.review blockquote{margin:0;padding:1.4rem 1.5rem;font-size:1.15rem;line-height:1.6}
+.cert{max-width:640px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-top:1.5rem}
+.foot{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--sub);font:.82rem var(--mono)}
+
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .pair{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
 }
-@media print{.side nav,.btn{display:none}.side{position:static;height:auto}}
 </style>
 </head>
 <body>
-<div class="shell">
 
-  <aside class="side">
-    <div>
-      <img class="photo" src="assets/photo.jpg" alt="Portrait of Xuanzhe Jin" width="150" height="188">
-    </div>
-    <div>
-      <h1>Xuanzhe Jin</h1>
-      <p class="role">Software development student at NBCC and PMP-certified project manager</p>
-    </div>
+<header class="bar">
+  <div class="wrap">
+    <a class="path" href="#top"><i>~/</i>xuanzhe-jin<span class="caret" aria-hidden="true"></span></a>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#samples">Design samples</a></li>
-        <li><a href="#background">Experience and education</a></li>
-        <li><a href="#growth">Certification and volunteering</a></li>
-        <li><a href="#testimonial">Testimonial</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">about.md</a></li>
+        <li><a href="#skills">skills.json</a></li>
+        <li><a href="#projects">projects/</a></li>
+        <li><a href="#design">design/</a></li>
+        <li><a href="#log">git log</a></li>
+        <li><a href="#contact">contact</a></li>
       </ul>
     </nav>
-    <div class="contact">
-      <span>Moncton, New Brunswick</span>
-      <a href="mailto:daniel.jin1127@gmail.com">daniel.jin1127@gmail.com</a>
-      <a href="https://www.linkedin.com/in/xuanzhe-jin-8a9712380" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/XuanzheJin" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Hello, world.<br>I’m <span class="hl">Xuanzhe.</span></h1>
+      <p class="sub">A software development student at NBCC who builds web apps with C# and ASP.NET Core, and plans the work like the project manager I used to be.</p>
+      <div class="btns">
+        <a class="btn" href="#projects">view projects</a>
+        <a class="btn ghost" href="assets/XuanzheJin-Portfolio.pdf">download portfolio.pdf</a>
+      </div>
     </div>
-  </aside>
-
-  <main class="main">
-
-    <section id="about">
-      <p class="lead">I build web applications, and I plan the work like a project manager.</p>
-      <p>I am a final-year Information Technology (Software Development) student at NBCC with a full-stack foundation in C#/.NET, Java, JavaScript, HTML/CSS and SQL. Before moving into development, I spent more than three years managing catalogs and digital tools at adidas, and I earned my PMP certification in 2020.</p>
-      <p>I turn business needs into use cases, user stories and wireframes, then build and test them. I work in English, Mandarin and Korean, and I am looking for a software development internship or practicum placement.</p>
-      <a class="btn" href="assets/XuanzheJin-Portfolio.pdf">Download the full portfolio (PDF)</a>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>Languages</dt><dd>C#, Java, JavaScript, SQL, Bash</dd>
-        <dt>Web</dt><dd>HTML, CSS, .NET, ASP.NET Core MVC</dd>
-        <dt>Databases</dt><dd>SQL Server, relational schema design</dd>
-        <dt>Testing and version control</dt><dd>xUnit, Git, GitHub</dd>
-        <dt>Environment</dt><dd>Visual Studio, VS Code, Ubuntu and WSL</dd>
-        <dt>Design and analysis</dt><dd>UML class diagrams, use cases, user stories, wireframes</dd>
-        <dt>Ways of working</dt><dd>Agile / Scrum, project management (PMP)</dd>
-      </dl>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <article class="project">
-        <h3>LinkNest Real Estate Website</h3>
-        <p class="meta">Server-Side Web: MVC course project, 2026 · Real estate · Team of two · In progress</p>
-        <p>A real estate website built with ASP.NET Core MVC for a client. Customers can register, log in, browse properties and book showings. Staff can upload images, and admins can create staff accounts. Every page fits on one screen and has a phone version.</p>
-        <p class="tools"><b>Tools:</b> ASP.NET Core MVC, C#, .NET, Visual Studio, Git and GitHub</p>
-        <p class="tools"><b>So far:</b> team profile memo, use cases, user stories, and final designs for the home and Upload Image pages (see design samples below).</p>
-      </article>
-
-      <article class="project">
-        <h3>Mini Rogue Console Game</h3>
-        <p class="meta">NBCC academic project · Games</p>
-        <p>A team project to design and build a console-based rogue-like game, planned with UML class diagrams. I implemented the core game logic using object-oriented principles.</p>
-        <p class="tools"><b>Tools:</b> C#, .NET, Git, UML</p>
-        <p class="tools"><b>Outcome:</b> a playable application, delivered on schedule.</p>
-      </article>
-
-      <article class="project">
-        <h3>Catalogs and digital tools at adidas</h3>
-        <p class="meta">Professional experience, 2022 to 2025 · Retail and trade marketing</p>
-        <p>Created trade marketing catalogs, coordinated with Business Units to keep product release data current, maintained the team’s digital tools, and resolved execution issues during cross-functional rollouts.</p>
-        <p class="tools"><b>Outcome:</b> better data accessibility and operational efficiency for the team, and project timelines met.</p>
-      </article>
-    </section>
-
-    <section id="samples">
-      <h2>Design samples from LinkNest</h2>
-      <p>Course work from the LinkNest project. It contains no confidential client or employer information.</p>
-
-      <figure>
-        <img src="assets/homepage.jpg" alt="Final LinkNest home page design for desktop and iPhone: a yellow hero with the line 'Linking millions to a place called HOME.' and three feature panels" width="1800" height="1125" loading="lazy">
-        <figcaption>Final home page design, desktop and iPhone.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="assets/upload.jpg" alt="Final LinkNest Upload Image page design for desktop and phone, with an image file picker, a description field and an Upload button" width="1800" height="1166" loading="lazy">
-        <figcaption>Final Upload Image page design, desktop and phone.</figcaption>
-      </figure>
-
-      <figure>
-        <img src="assets/usecase.jpg" alt="Use case diagram showing Customer, Staff and Admin roles and six use cases for the LinkNest website" width="1434" height="964" loading="lazy">
-        <figcaption>Use case diagram: three roles and the six main functions of the site.</figcaption>
-      </figure>
-
-      <details>
-        <summary>Use case narrative: Upload Image</summary>
-        <div class="scroll">
-          <table>
-            <tr><th scope="row">Actor</th><td>Staff</td></tr>
-            <tr><th scope="row">Precondition</th><td>The staff member is logged in through the staff login.</td></tr>
-            <tr><th scope="row">Main flow</th><td>1. The staff member selects Upload Image.<br>2. The system displays the Upload Image page.<br>3. The staff member chooses an image file, adds a description and selects Upload.<br>4. The system checks the file.<br>5. The system saves the image and shows a confirmation message.</td></tr>
-            <tr><th scope="row">Alternative flow</th><td>If the file is not valid, the system shows an error message and the staff member can choose another file.</td></tr>
-            <tr><th scope="row">Postcondition</th><td>The image is saved and available in the system.</td></tr>
-          </table>
-        </div>
-      </details>
-
-      <details>
-        <summary>User stories</summary>
-        <div class="scroll">
-          <table>
-            <thead><tr><th>As a…</th><th>I want to…</th><th>So that…</th></tr></thead>
-            <tbody>
-              <tr><td>Customer</td><td>register an account</td><td>I can book showings</td></tr>
-              <tr><td>Customer</td><td>log in to the website</td><td>I can access my account</td></tr>
-              <tr><td>Customer</td><td>browse available properties</td><td>I can find homes that interest me</td></tr>
-              <tr><td>Customer</td><td>book a showing for a property</td><td>I can view it in person</td></tr>
-              <tr><td>Staff member</td><td>log in through the staff login</td><td>I can use the staff tools</td></tr>
-              <tr><td>Staff member</td><td>upload an image</td><td>images are available on the website</td></tr>
-              <tr><td>Admin</td><td>create staff accounts</td><td>staff can access the staff tools</td></tr>
-              <tr><td>Visitor</td><td>use the website on my phone</td><td>I can use it anywhere</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-    </section>
-
-    <section id="background">
-      <h2>Experience and education</h2>
-      <ol class="timeline">
-        <li>
-          <p class="when">September 2025 to present</p>
-          <h3>Diploma in Information Technology: Software Development</h3>
-          <p class="sub">New Brunswick Community College (NBCC), Moncton</p>
-          <p>Applying core programming principles in software engineering projects and hands-on labs.</p>
-        </li>
-        <li>
-          <p class="when">January 2022 to June 2025</p>
-          <h3>Catalog and Digital Tool Project Manager</h3>
-          <p class="sub">adidas</p>
-          <p>Trade marketing catalogs, product release data, digital tools and cross-functional rollouts.</p>
-        </li>
-        <li>
-          <p class="when">2009 to 2013</p>
-          <h3>Bachelor of Arts in Advertising</h3>
-          <p class="sub">Changchun University of Science and Technology, China</p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="growth">
-      <h2>Certification and volunteering</h2>
-      <ul class="plain">
-        <li><b>Project Management Professional (PMP)®</b>, Project Management Institute. Granted December 2020.</li>
-        <li><b>Legs for Literacy</b>, Moncton (October 2025). Directed runners and kept the course safe at a fast-paced community event.</li>
-      </ul>
-      <figure>
-        <img src="assets/pmp-certificate.jpg" alt="PMP certificate issued to Xuanzhe Jin by the Project Management Institute" width="1400" height="1082" loading="lazy">
-        <figcaption>PMP certificate.</figcaption>
-      </figure>
-    </section>
-
-    <section id="testimonial">
-      <h2>What a colleague says</h2>
-      <blockquote>
-        “Working with Xuanzhe at adidas was a great experience. He brought a high level of professionalism and responsibility to our team. He has a great talent for keeping cross-functional projects moving smoothly and is very agile when it comes to solving problems on the spot. Any team would be lucky to have him.”
-        <footer>Nancy Weng, adidas</footer>
-      </blockquote>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>I am looking for a software development internship or practicum placement. Email me, or find me on LinkedIn and GitHub.</p>
-      <ul class="plain">
-        <li><a href="mailto:daniel.jin1127@gmail.com">daniel.jin1127@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/xuanzhe-jin-8a9712380" rel="noopener">linkedin.com/in/xuanzhe-jin-8a9712380</a></li>
-        <li><a href="https://github.com/XuanzheJin" rel="noopener">github.com/XuanzheJin</a></li>
-      </ul>
-      <p class="note">© 2026 Xuanzhe Jin</p>
-    </section>
-
-  </main>
+    <div class="win term" aria-label="Terminal summary of Xuanzhe Jin">
+      <div class="head"><span></span><span></span><span></span><em>bash</em></div>
+<pre><span class="ln"><span class="p">$</span> whoami</span>
+<span class="ln"><span class="n">xuanzhe-jin</span></span>
+<span class="ln"><span class="p">$</span> cat role.txt</span>
+<span class="ln"><span class="n">IT student, Software Development (NBCC)</span></span>
+<span class="ln"><span class="n">PMP-certified, 3+ years at adidas</span></span>
+<span class="ln"><span class="p">$</span> ls skills/</span>
+<span class="ln"><span class="s">csharp  java  javascript  sql  aspnet-mvc</span></span>
+<span class="ln"><span class="p">$</span> echo $STATUS</span>
+<span class="ln"><span class="n">open to internship / practicum</span></span>
+<span class="ln"><span class="p">$</span> <span class="caret" aria-hidden="true"></span></span></pre>
+    </div>
+  </div>
 </div>
+
+<section id="about">
+  <div class="wrap">
+    <p class="cm">// about</p>
+    <h2>From managing projects to writing them.</h2>
+    <div class="aboutgrid">
+      <div class="win me">
+        <div class="head"><span></span><span></span><span></span><em>profile.jpg</em></div>
+        <img src="assets/photo.jpg" alt="Portrait of Xuanzhe Jin" width="230" height="288">
+      </div>
+      <div class="readme">
+        <div class="head">README.md</div>
+        <div class="md">
+          <p>I am a final-year Information Technology (Software Development) student at NBCC with a full-stack foundation in C#/.NET, Java, JavaScript, HTML/CSS and SQL. Before moving into development, I spent more than three years managing catalogs and digital tools at adidas, and I earned my PMP certification in 2020.</p>
+          <p>I turn business needs into use cases, user stories and wireframes, then build and test them. I work in English, Mandarin and Korean, and I am looking for a software development internship or practicum placement.</p>
+        </div>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>3+ yrs</b><span>managing catalogs and digital tools at adidas</span></div>
+      <div><b>PMP</b><span>Project Management Institute, since 2020</span></div>
+      <div><b>3 langs</b><span>English, Mandarin, Korean</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="cm">// skills</p>
+    <h2>What I work with.</h2>
+    <div class="win">
+      <div class="head"><span></span><span></span><span></span><em>skills.json</em></div>
+<pre><span class="d">{</span>
+  <span class="k">"languages"</span><span class="d">:</span>   <span class="d">[</span><span class="s">"C#"</span>, <span class="s">"Java"</span>, <span class="s">"JavaScript"</span>, <span class="s">"SQL"</span>, <span class="s">"Bash"</span><span class="d">],</span>
+  <span class="k">"web"</span><span class="d">:</span>         <span class="d">[</span><span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">".NET"</span>, <span class="s">"ASP.NET Core MVC"</span><span class="d">],</span>
+  <span class="k">"databases"</span><span class="d">:</span>   <span class="d">[</span><span class="s">"SQL Server"</span>, <span class="s">"schema design"</span><span class="d">],</span>
+  <span class="k">"testing"</span><span class="d">:</span>     <span class="d">[</span><span class="s">"xUnit"</span><span class="d">],</span>
+  <span class="k">"versioning"</span><span class="d">:</span>  <span class="d">[</span><span class="s">"Git"</span>, <span class="s">"GitHub"</span><span class="d">],</span>
+  <span class="k">"tools"</span><span class="d">:</span>       <span class="d">[</span><span class="s">"Visual Studio"</span>, <span class="s">"VS Code"</span>, <span class="s">"Ubuntu / WSL"</span><span class="d">],</span>
+  <span class="k">"design"</span><span class="d">:</span>      <span class="d">[</span><span class="s">"UML"</span>, <span class="s">"use cases"</span>, <span class="s">"user stories"</span>, <span class="s">"wireframes"</span><span class="d">],</span>
+  <span class="k">"process"</span><span class="d">:</span>     <span class="d">[</span><span class="s">"Agile / Scrum"</span>, <span class="s">"Project management (PMP)"</span><span class="d">]</span>
+<span class="d">}</span></pre>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="cm">// projects</p>
+    <h2>Things I’ve built and run.</h2>
+
+    <article class="proj">
+      <div class="top"><span class="dir">linknest/</span><span class="badge">in progress</span></div>
+      <h3>LinkNest Real Estate Website</h3>
+      <p class="sub2">Server-Side Web: MVC course project, 2026. A team of two builds a real estate site with ASP.NET Core MVC for a client. Customers register, browse properties and book showings. Staff upload images, and admins create staff accounts. Every page fits on one screen and has a phone version.</p>
+      <ul class="chips"><li>ASP.NET Core MVC</li><li>C#</li><li>.NET</li><li>Visual Studio</li><li>Git / GitHub</li></ul>
+      <div class="win" style="margin-top:1.5rem">
+        <div class="head"><span></span><span></span><span></span><em>design preview: home page</em></div>
+        <div class="shot dk"><img src="assets/homepage.jpg" alt="Final LinkNest home page design for desktop and iPhone, with a yellow hero and the line 'Linking millions to a place called HOME.'" width="1800" height="1125" loading="lazy"></div>
+      </div>
+    </article>
+
+    <div class="pair">
+      <article class="card">
+        <div class="top"><span class="dir" style="font:600 .95rem var(--mono);color:var(--link)">mini-rogue/</span></div>
+        <h3>Mini Rogue Console Game</h3>
+        <p>NBCC academic project. A team built a console-based rogue-like game planned with UML class diagrams. I implemented the core game logic using object-oriented principles, and we delivered a playable application on schedule.</p>
+        <ul class="chips"><li>C#</li><li>.NET</li><li>Git</li><li>UML</li></ul>
+      </article>
+      <article class="card">
+        <div class="top"><span class="dir" style="font:600 .95rem var(--mono);color:var(--link)">adidas-catalogs/</span></div>
+        <h3>Catalogs and digital tools</h3>
+        <p>Professional experience, 2022 to 2025. I created trade marketing catalogs, kept product release data current with Business Units, maintained the team’s digital tools, and resolved issues in cross-functional rollouts, improving data accessibility and efficiency.</p>
+        <ul class="chips"><li>digital tools</li><li>product data</li><li>PMP methods</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="design">
+  <div class="wrap">
+    <p class="cm">// design</p>
+    <h2>From requirements to screens.</h2>
+    <p class="sub2">Course work from the LinkNest project. It contains no confidential client or employer information.</p>
+    <div class="win">
+      <div class="head"><span></span><span></span><span></span><em>design preview: upload image page</em></div>
+      <div class="shot dk"><img src="assets/upload.jpg" alt="Final LinkNest Upload Image page design for desktop and phone, with an image file picker, a description field and an Upload button" width="1800" height="1166" loading="lazy"></div>
+    </div>
+    <p class="cap">Final Upload Image page design, desktop and phone.</p>
+    <div class="win">
+      <div class="head"><span></span><span></span><span></span><em>use-case-diagram.png</em></div>
+      <div class="shot"><img src="assets/usecase.jpg" alt="Use case diagram showing Customer, Staff and Admin roles and six use cases for the LinkNest website" width="1434" height="964" loading="lazy"></div>
+    </div>
+    <p class="cap">Use case diagram: three roles and the six main functions of the site.</p>
+
+    <details>
+      <summary>use-case-upload-image.md</summary>
+      <div>
+        <table>
+          <tr><th scope="row">Actor</th><td>Staff</td></tr>
+          <tr><th scope="row">Precondition</th><td>The staff member is logged in through the staff login.</td></tr>
+          <tr><th scope="row">Main flow</th><td>1. The staff member selects Upload Image.<br>2. The system displays the Upload Image page.<br>3. The staff member chooses an image file, adds a description and selects Upload.<br>4. The system checks the file.<br>5. The system saves the image and shows a confirmation message.</td></tr>
+          <tr><th scope="row">Alternative flow</th><td>If the file is not valid, the system shows an error message and the staff member can choose another file.</td></tr>
+          <tr><th scope="row">Postcondition</th><td>The image is saved and available in the system.</td></tr>
+        </table>
+      </div>
+    </details>
+    <details>
+      <summary>user-stories.md</summary>
+      <div>
+        <table>
+          <thead><tr><th>As a…</th><th>I want to…</th><th>So that…</th></tr></thead>
+          <tbody>
+            <tr><td>Customer</td><td>register an account</td><td>I can book showings</td></tr>
+            <tr><td>Customer</td><td>log in to the website</td><td>I can access my account</td></tr>
+            <tr><td>Customer</td><td>browse available properties</td><td>I can find homes that interest me</td></tr>
+            <tr><td>Customer</td><td>book a showing for a property</td><td>I can view it in person</td></tr>
+            <tr><td>Staff member</td><td>log in through the staff login</td><td>I can use the staff tools</td></tr>
+            <tr><td>Staff member</td><td>upload an image</td><td>images are available on the website</td></tr>
+            <tr><td>Admin</td><td>create staff accounts</td><td>staff can access the staff tools</td></tr>
+            <tr><td>Visitor</td><td>use the website on my phone</td><td>I can use it anywhere</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="log">
+  <div class="wrap">
+    <p class="cm">// experience</p>
+    <h2><span style="font-family:var(--mono);font-weight:600;font-size:.7em">$ git log</span></h2>
+    <ol class="log">
+      <li><span class="when">2025-09 → present</span><span class="msg"><i>feat:</i> Diploma in IT, Software Development</span><p>New Brunswick Community College (NBCC), Moncton. Core programming principles applied in software engineering projects and hands-on labs.</p></li>
+      <li><span class="when">2025-10</span><span class="msg"><i>chore:</i> volunteer at Legs for Literacy</span><p>Moncton, New Brunswick. Directed runners and kept the course safe at a fast-paced community event.</p></li>
+      <li><span class="when">2022-01 → 2025-06</span><span class="msg"><i>feat:</i> Catalog and Digital Tool Project Manager</span><p>adidas. Trade marketing catalogs, product release data, digital tools and cross-functional rollouts.</p></li>
+      <li><span class="when">2020-12</span><span class="msg"><i>feat:</i> PMP certification</span><p>Project Management Institute.</p></li>
+      <li><span class="when">2009 → 2013</span><span class="msg"><i>init:</i> BA in Advertising</span><p>Changchun University of Science and Technology, China.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="cert">
+  <div class="wrap">
+    <p class="cm">// certification</p>
+    <h2>Project Management Professional.</h2>
+    <p class="sub2">PMP®, Project Management Institute. Granted December 2020.</p>
+    <div class="cert"><img src="assets/pmp-certificate.jpg" alt="PMP certificate issued to Xuanzhe Jin by the Project Management Institute" width="1400" height="1082" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="review">
+  <div class="wrap">
+    <p class="cm">// feedback</p>
+    <h2>What a colleague says.</h2>
+    <div class="review">
+      <div class="head"><div class="av" aria-hidden="true">NW</div><div><b>Nancy Weng</b> <span>· adidas</span></div></div>
+      <blockquote>“Working with Xuanzhe at adidas was a great experience. He brought a high level of professionalism and responsibility to our team. He has a great talent for keeping cross-functional projects moving smoothly and is very agile when it comes to solving problems on the spot. Any team would be lucky to have him.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="cm">// contact</p>
+    <h2>Let’s talk.</h2>
+    <p class="sub2">I am looking for a software development internship or practicum placement.</p>
+    <div class="win">
+      <div class="head"><span></span><span></span><span></span><em>contact.sh</em></div>
+<pre><span class="p">$</span> mail <a href="mailto:daniel.jin1127@gmail.com">daniel.jin1127@gmail.com</a>
+<span class="p">$</span> open <a href="https://www.linkedin.com/in/xuanzhe-jin-8a9712380" rel="noopener">linkedin.com/in/xuanzhe-jin-8a9712380</a>
+<span class="p">$</span> open <a href="https://github.com/XuanzheJin" rel="noopener">github.com/XuanzheJin</a>
+<span class="p">$</span> download <a href="assets/XuanzheJin-Portfolio.pdf">portfolio.pdf</a></pre>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot"><div class="wrap">© 2026 Xuanzhe Jin · Moncton, New Brunswick · hand-written HTML and CSS</div></footer>
+
+<script>
+(function(){
+  var lines=document.querySelectorAll('.term .ln');
+  if(!lines.length||window.matchMedia('(prefers-reduced-motion: reduce)').matches){lines.forEach(function(l){l.classList.add('on')});return;}
+  var i=0;
+  (function next(){
+    if(i>=lines.length)return;
+    lines[i].classList.add('on');
+    var isCmd=lines[i].querySelector('.p');
+    i++; setTimeout(next,isCmd?550:260);
+  })();
+})();
+</script>
 </body>
 </html>
